@@ -71,10 +71,6 @@ html {
   cursor: pointer;
 }
 
-.edit:hover {
-  background-color: red;
-}
-
 
 .homeimg {
   /* border-radius: 20%; */
