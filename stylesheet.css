@@ -152,9 +152,11 @@ html {
 #time {
   width: 0;
   color: green;
-  animation: welcome 2s steps(10) forwards;
+  border-right: 1px solid black;
+  animation: welcome 2s steps(10) forwards,
+  blinker 0.25s steps(9) 9 forwards ;
   overflow: hidden;
-    text-wrap: nowrap;
+  text-wrap: nowrap;
 }
 @keyframes welcome {
   from{
@@ -164,13 +166,23 @@ html {
     width: 10ch;
   }
 }
-
+@keyframes blinker {
+  from,to{
+    border-color: transparent;
+  }
+  50%{
+    border-color: black;
+  }
+  
+}
 #time1 {
   width:0;
   overflow: hidden;
   text-wrap: nowrap;
   color: red;
-  animation: second 3s steps(20) 2s forwards;
+  border-right: 2px solid black;
+  animation: second 3s steps(20) 2s forwards,
+  blinker-s 0.15s steps(20) 20 2s both;
 }
 @keyframes second {
   from{
@@ -180,13 +192,23 @@ html {
     width:20ch ;
   }
 }
+@keyframes blinker-s {
+  from,to{
+    border-color: transparent;
+  }
+  50%{
+    border-color: black;
+  }
+}
 
 #time2 {
   width:0;
   overflow: hidden;
   text-wrap: nowrap;
   color: red;
-  animation: third 3s steps(15) 5s forwards;
+  border-right: 1px solid black;
+  animation: third 3s steps(15) 5s forwards,
+  blinker-t 0.2s steps(15) 5s 15 both;
 }
 @keyframes third {
   from{
@@ -196,13 +218,22 @@ html {
     width:15ch ;
   }
 }
-
+@keyframes blinker-t {
+  from,to{
+    border-color: transparent;
+  }
+  50%{
+    border-color: black;
+  }
+}
 #time3 {
   width:0;
   overflow: hidden;
   text-wrap: nowrap;
   color: red;
-  animation: fourth 3s steps(29) 8s forwards;
+  border-right: 1px solid black;
+  animation: fourth 5s steps(29) 8s forwards,
+  blinker-f 0.17s steps(29) 8s 29 both;
 }
 @keyframes fourth {
   from{
@@ -212,21 +243,38 @@ html {
     width:29ch ;
   }
 }
-
+@keyframes blinker-f {
+  from,to{
+    border-color: transparent;
+  }
+  50%{
+    border-color: black;
+  }
+}
 #time4 {
   text-align: center;
   width:0;
   overflow: hidden;
   text-wrap: nowrap;
   color: red;
-  animation: fifth 1s steps(13) 11s forwards;
+  border-right: 1px solid black;
+  animation: fifth 2s steps(14) 13s forwards,
+  blinker-five 0.14s steps(14) 13s 20 both;
 }
 @keyframes fifth {
   from{
     width: 0;
   }
   to{
-    width:13ch ;
+    width:14ch ;
+  }
+}
+@keyframes blinker-five {
+  from,to{
+    border-color: transparent;
+  }
+  50%{
+    border-color: black;
   }
 }
 
@@ -517,13 +565,15 @@ transform: scale(0.5);
 }
 
 .ptag2 {
-height: 230px;
+  overflow: auto;
+  padding: 5px;
+height: 170px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .ptag3 {
   margin: 0;
-  margin-bottom: 70px;
+  /* margin-bottom: 70px; */
 }
 
 .font10 {
@@ -605,18 +655,32 @@ height: 230px;
 
 @media(max-width:480px) {
   .div11 {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     height: auto;
+    width: 100%; */
+  position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 
   #contact {
     width: 100%;
   }
-
+ .image-height {
+    width: 100%;
+    max-width: 250px;
+  }
   .imgtag2 {
-    width: 250px;
+    /* width: 250px; */
+  width: 100%;
+    max-width: 100%;
+    height: auto;
   }
 
   .pro {
@@ -671,8 +735,10 @@ height: 230px;
   }
 
   .edit {
-    width: 55px;
-    font-size: 15px;
+    /* width: 55px;
+    font-size: 15px; */
+  width: auto;
+    flex: 1;
   }
 
   #butt:hover::after {
